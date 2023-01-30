@@ -1,5 +1,6 @@
 import User from "../model/user.js";
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export const signupUser = async (request, response) => {
    try {
@@ -15,5 +16,25 @@ export const signupUser = async (request, response) => {
 
    } catch (error) {
     return response.status(500).json({msg: "Error while signup the user"})
+   }
+}
+
+export const loginUser = async(request, response) => {
+   let user = await User.findOne({username: request.body.username});
+   if(!user){
+      return response.status(400).json({ msg: "Username does not match"})
+   }
+   try {
+     let match = await bcrypt.compare(request.body.parser, user.password);
+     if(match){
+          const accessToken = jwt.sign
+
+          const refreshToken = 
+
+     } else{
+      return  response.status(400).json({msg: 'password does not match'});
+     }
+   } catch (error) {
+      
    }
 }
