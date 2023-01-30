@@ -27,7 +27,7 @@ export const loginUser = async(request, response) => {
    try {
      let match = await bcrypt.compare(request.body.parser, user.password);
      if(match){
-          const accessToken = jwt.sign
+          const accessToken = jwt.sign(user.ToJSON(), )
 
           const refreshToken = 
 
