@@ -4,6 +4,7 @@ import { Box, TextField, Button, styled , Typography} from "@mui/material";
 import { API } from '../../service/api';
 import { typography } from "@mui/system";
 import { DataContext } from "../../context/DataProvider";
+import { useNavigate } from "react-router-dom";
 
 const Component = styled(Box)`
   width: 400px;
@@ -69,7 +70,7 @@ const loginInitialValues = {
   password: '',
  }
 
-const Login = () => {
+const Login = ({isUserAuthenticated}) => {
   const imageURL =
     "https://www.sesta.it/wp-content/uploads/2021/03/logo-blog-sesta-trasparente.png";
 
@@ -79,6 +80,7 @@ const Login = () => {
   const [error, setError] = useState('')
 
   const { setAccount } = useContext(DataContext);
+  const navigate = useNavigate();
 
   const toggleSignup = () => {
     account === 'signup' ? toggleAccount('login') : toggleAccount('signup');
@@ -101,7 +103,7 @@ const Login = () => {
 
  const onValueChange = (e) => {
     setLogin({ ...login, [e.target.name]: e.target.value })
- }
+ }  
    
  const loginUser = async () => {
      let response = await API.userLogin(login);
@@ -110,6 +112,13 @@ const Login = () => {
 
       sessionStorage.setItem('accessToken', `Bearer ${response.data.accessToken}`);
       sessionStorage.setItem('refreshToken', `Bearer ${response.data.refreshToken}`);
+
+     setAccount({username: response.data.username, name: response.data.name})
+
+     isUserAuthenticated(true);
+        
+     navigate('/');
+
      } else {
       setError('something went wrong! pls try again later')
      }
@@ -124,7 +133,7 @@ const Login = () => {
           <TextField variant="standard" value={login.username} onChange={(e) => onValueChange(e)} name='username' label="Enter username" />
           <TextField variant="standard" value={login.password} onChange={(e) => onValueChange(e)} name='password' label="Enter password" />
           {error && <Error>{error}</Error>}
-          <LoginButton variant="contained">Login</LoginButton>
+          <LoginButton variant="contained" onClick={() => loginUser()}>Login</LoginButton>
           <Text style={{ textAlign:"center" }}>OR</Text>
           <SignupButton onClick={() => toggleSignup()}>Create an account</SignupButton>
         </Wrapper>
