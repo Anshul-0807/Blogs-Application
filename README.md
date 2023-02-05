@@ -1,3 +1,3 @@
 # Blogs-Application
-Write your blogs here.. 
-Blogsss
+Write your blogs here... 
+
