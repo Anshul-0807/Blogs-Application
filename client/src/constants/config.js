@@ -28,5 +28,6 @@ export const API_NOTOFICATION_MESSAGE = {
 // NEED SERVICE CALL: { url: '/' , method: 'POST, GET, PUT, DELETE' params: true/false, query: true/false}
 export const SERVICE_URLS = {
     userSignup: { url: '/signup', method: 'POST'},
-    userLogin: { url: '/login', method: 'POST' }
+    userLogin: { url: '/login', method: 'POST' },
+    uploadFile: { url: '/file/upload', method: 'POST'}
 }
