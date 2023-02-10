@@ -10,3 +10,7 @@ export const uploadImage = (request, response) => {
 
     response.status(200).json(imageUrl);    
 }
+
+export const getImage = (request, response) =>{
+
+}
