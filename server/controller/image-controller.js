@@ -1,16 +1,11 @@
-
-
-const url = 'http://localhost:8000';
+const url = "http://localhost:8000";
 
 export const uploadImage = (request, response) => {
-    if(!request.file) 
-        return response.status(404).json("File not found");
-    
-    const imageUrl = `${url}/file/${request.file.filename}`;
+  if (!request.file) return response.status(404).json("File not found");
 
-    response.status(200).json(imageUrl);    
-}
+  const imageUrl = `${url}/file/${request.file.filename}`;
 
-export const getImage = (request, response) =>{
+  response.status(200).json(imageUrl);
+};
 
-}
+export const getImage = (request, response) => {};
