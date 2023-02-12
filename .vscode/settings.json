@@ -1,0 +1,9 @@
+{
+    "editor.fontFamily": "operator mono",
+
+
+
+
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs":"active"
+}
