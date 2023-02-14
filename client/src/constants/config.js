@@ -1,6 +1,6 @@
-// API_NOTOFICATION_MESSAGE
+// API_NOTIFICATION_MESSAGE
 
-export const API_NOTOFICATION_MESSAGE = {
+export const API_NOTIFICATION_MESSAGES = {
      loading: {
         title: "loading...",
         message: "Data is being loaded, please wait"
@@ -29,5 +29,5 @@ export const API_NOTOFICATION_MESSAGE = {
 export const SERVICE_URLS = {
     userSignup: { url: '/signup', method: 'POST'},
     userLogin: { url: '/login', method: 'POST' },
-    uploadFile: { url: '/file/upload', method: 'POST'}
+    uploadFile: { url: '/file/upload', method: 'POST' },
 }
