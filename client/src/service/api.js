@@ -1,6 +1,6 @@
 import axios from 'axios';
 // import { response } from 'express';
-import { API_NOTOFICATION_MESSAGE, SERVICE_URLS} from '../constants/config';
+import { API_NOTIFICATION_MESSAGES, SERVICE_URLS} from '../constants/config';
 
 const API_URL = 'http://localhost:8000'
 
@@ -62,7 +62,7 @@ const processError = (error) => {
         console.log('ERROR IN RESPONSE: ', error.toJSON());
         return{
           isError: true,
-          msg: API_NOTOFICATION_MESSAGE.responseFailure,
+          msg: API_NOTIFICATION_MESSAGES.responseFailure,
           code: error.response.status
         }
      }else if(error.request){
@@ -70,7 +70,7 @@ const processError = (error) => {
        console.log('ERROR IN REQUEST: ', error.toJSON());
        return{
          isError: true,
-         msg: API_NOTOFICATION_MESSAGE.requestFailure,
+         msg: API_NOTIFICATION_MESSAGES.requestFailure,
          code: ""
        }
      }else {
@@ -78,7 +78,7 @@ const processError = (error) => {
         console.log('ERROR IN NETWORK: ', error.toJSON());
         return{
           isError: true,
-          msg: API_NOTOFICATION_MESSAGE.networkError,
+          msg: API_NOTIFICATION_MESSAGES.networkError,
           code: ""
         }
      }
