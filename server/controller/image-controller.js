@@ -19,7 +19,7 @@ export const uploadImage = (request, response) => {
     
     const imageUrl = `${url}/file/${request.file.filename}`;
 
-    response.status(200).json(imageUrl);    
+    response.status(200).json(imageUrl);       
 }
 export const getImage = async (request, response) => {
     try {
