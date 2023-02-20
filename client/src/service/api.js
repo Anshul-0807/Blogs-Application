@@ -55,7 +55,7 @@ const processResponse = (response) => {
 // If success -> return { isSuccess: true, data: object}
 // If fall -> return { isFailure: true, status: string, msg: string, code: int }
 ////////////////
-const processError = (error) => {
+const  processError = (error) => {
      if(error.response){
         // server made and sever response with a status other
         // that falls out of the range 2.x.x
