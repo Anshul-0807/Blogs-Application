@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { AddCircle as Add } from "@mui/icons-material";
 import { useState, useEffect, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { DataContext } from "../../context/DataProvider";
 import { API } from "../../service/api";
 
@@ -59,6 +59,7 @@ const CreatePost = () => {
   const { account } = useContext(DataContext);
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const url = post.picture
     ? post.picture
@@ -85,6 +86,13 @@ const CreatePost = () => {
     setPost({ ...post, [e.target.name]: e.target.value });
   };
 
+  const savePost = async () =>{
+   let response = await API.CreatePost(post);
+   if(response.isSuccess){
+    navigate('/');
+   }
+  }
+
   return (
     <Container>
       <Image src={url} alt="banner" />
@@ -104,7 +112,7 @@ const CreatePost = () => {
           onChange={(e) => handleChange(e)}
           name="title"
         />
-        <Button variant="contained">Publish</Button>
+        <Button variant="contained" onClick={() => savePost()}>Publish</Button>
       </StyledFormControl>
 
       <Textarea
