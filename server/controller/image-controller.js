@@ -11,16 +11,18 @@ conn.once('open', () => {
     });
     gfs = grid(conn.db, mongoose.mongo);
     gfs.collection('fs');
-})
+});
 
 export const uploadImage = (request, response) => {
     if(!request.file) 
         return response.status(404).json("File not found");
     
     const imageUrl = `${url}/file/${request.file.filename}`;
-
-    response.status(200).json(imageUrl);       
+    
+    response.status(200).json(imageUrl);    
 }
+
+
 export const getImage = async (request, response) => {
     try {
        const file =  await gfs.files.findOne({ filename: request.params.filename});
