@@ -14,7 +14,7 @@ const Posts = () => {
         setPosts(response.data);
        }
      }
-     fetchData()
+     fetchData();
     }, [])
     
 
