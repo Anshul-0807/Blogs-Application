@@ -1,7 +1,3 @@
-
-
-
-
 export const getAccessToken = () => {
- return sessionStorage.getItem('accessToken');
-}
+  return sessionStorage.getItem("accessToken");
+};
