@@ -14,7 +14,7 @@ const Component = styled(AppBar)`
     color: #000;
     text-decoration: none;
  }
- `
+ `;
 
 const Header = () => {
   return (
