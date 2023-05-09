@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
+// component
 import Banner from "../banner/Banner";
 import Categories from "./Categories";
 import Posts from "./post/Posts";
