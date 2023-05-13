@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import dotenv from 'dotenv';
 
-// jwt authentication
+// jwt authentications
 dotenv.config();
 
 export const authenticateToken = (request, response, next) => {
