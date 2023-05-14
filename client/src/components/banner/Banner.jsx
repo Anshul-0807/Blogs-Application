@@ -15,13 +15,13 @@ const Image = styled(Box)`
 const Heading = styled(Typography)`
   font-size: 70px;
   color: #ffffff;
-  line-height:1
+  line-height: 1;
 `;
 
 const SubHeading = styled(Typography)`
   font-size: 20px;
   background: #fff;
-`
+`;
 
 const Banner = () => {
   return (
